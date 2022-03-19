@@ -26,7 +26,7 @@ Caso não consiga instalar através da interface, copiar o lombok.jar para o dir
 
 	Primeiramente deve-se clonar o repositório no endereço:
 	
-	https://github.com/efmendes/treinamento_202201.git
+	https://github.com/WendSant/Indra-Training-Java-Angular
 	
 	
 	

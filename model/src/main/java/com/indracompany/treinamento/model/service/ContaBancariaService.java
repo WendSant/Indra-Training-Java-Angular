@@ -36,6 +36,23 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		ContaBancaria c = consultarConta(agencia, numero);
 		return c.getSaldo();
 	}
+	public void registrarOperacao(String agencia, String numeroConta, double valor, char tpOperacao,
+			ContaBancaria conta) {
+		LocalDateTime dataHora = LocalDateTime.now();
+		OperacaoConta op = new OperacaoConta();
+		op.setDataHora(dataHora);
+		op.setConta(conta);
+		if (Character.toUpperCase(tpOperacao) == 'C') {
+			op.setTpOperacao('C');
+			op.setObservacao("Tipo de operação: Crédito.");
+		} else {
+			op.setObservacao("Tipo de operação: Débito.");
+			op.setTpOperacao('D');
+		}
+		op.setValor(valor);
+		op.setConta(conta);
+		opContaRepository.save(op);
+	}
 
 	public void depositar (String agencia, String numeroConta, double valor) {
 		ContaBancaria conta = consultarConta(agencia, numeroConta);
@@ -107,21 +124,4 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		return resultado;
 	}
 	
-	public void registrarOperacao(String agencia, String numeroConta, double valor, char tpOperacao,
-			ContaBancaria conta) {
-		LocalDateTime dataHora = LocalDateTime.now();
-		OperacaoConta op = new OperacaoConta();
-		op.setDataHora(dataHora);
-		op.setConta(conta);
-		if (Character.toUpperCase(tpOperacao) == 'C') {
-			op.setTpOperacao('C');
-			op.setObservacao("Operação de crédito em conta.");
-		} else {
-			op.setObservacao("Operação de débito em conta.");
-			op.setTpOperacao('D');
-		}
-		op.setValor(valor);
-		op.setConta(conta);
-		opContaRepository.save(op);
-	}
 }

@@ -18,7 +18,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Entity
-@Table(name = "operacoes")
+@Table(name = "operacoesx")
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class OperacaoConta extends GenericEntity<Long> {
@@ -28,8 +28,7 @@ public class OperacaoConta extends GenericEntity<Long> {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
-//	@JsonFormat(pattern="dd-MM-yyyy")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private LocalDateTime dataHora;
 
 	@Column(length = 1)

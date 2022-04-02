@@ -26,18 +26,8 @@ public class ClienteRest extends GenericCrudRest<Cliente, Long, ClienteService>{
 	
 	
 	@GetMapping(value = "/buscarPorCpf/{cpf}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<List<ClienteDTO>> buscarClientePorCpf(@PathVariable String cpf) {
-		List<ClienteDTO> dto = clienteService.buscarClientePorCpf(cpf);
-		
-		if (dto == null) {
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}
-		
-		return new ResponseEntity<>(dto, HttpStatus.OK);
-	}
-	@GetMapping(value = "/buscarPorNome/{nome}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<List<ClienteDTO>> buscarClientePorNome(@PathVariable String nome) {
-		List<ClienteDTO> dto = clienteService.buscarClientePorNome(nome);
+	public @ResponseBody ResponseEntity<ClienteDTO> buscarClientePorCpf(@PathVariable String cpf) {
+		ClienteDTO dto = clienteService.buscarClientePorCpf(cpf);
 		
 		if (dto == null) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -46,5 +36,16 @@ public class ClienteRest extends GenericCrudRest<Cliente, Long, ClienteService>{
 		return new ResponseEntity<>(dto, HttpStatus.OK);
 	}
 	
-
+	@GetMapping(value = "/buscarPorNome/{nome}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody ResponseEntity<List<ClienteDTO>> buscarCLientesPorNome(@PathVariable String nome){
+		
+		List<ClienteDTO> dto = clienteService.buscarClientesPorNome(nome);
+		
+		if (dto == null) {
+			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+		}
+		
+		return new ResponseEntity<>(dto, HttpStatus.OK);
+		
+	}
 }

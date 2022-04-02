@@ -28,6 +28,7 @@ public enum ExceptionValidacoes implements AplicacaoExceptionValidacoes {
   ERRO_CONTA_INVALIDA("msg.erro.conta.invalida", null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   ERRO_SALDO_INEXISTENTE("msg.erro.saldo.inexistente", null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   ERRO_CONTA_DUPLICADA("msg.erro.conta.duplicada", null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
+  ERRO_CPF_JA_CADASTRADO("msg.erro.cpf.cadastrado", null, AplicacaoExceptionValidacoes.SEVERIDADE_ERRO),
   
   
 

@@ -26,7 +26,7 @@ Caso não consiga instalar através da interface, copiar o lombok.jar para o dir
 
 	Primeiramente deve-se clonar o repositório no endereço:
 	
-	https://github.com/efmendes/treinamento_202201.git
+	https://github.com/WendSant/Indra-Training-Java-Angular
 	
 	
 	
@@ -59,11 +59,3 @@ Banco de dados
 
 Como acessar o client do MySQL:
 
-	
-JDBC URL: jdbc:mysql://31.220.109.68:3306/treinamentoindra
-
-Usuário: treinamentoindra
-
-Senha: treinamentoindra
-
-PhpMyAdmin: http://31.220.109.68/phpmyadmin/

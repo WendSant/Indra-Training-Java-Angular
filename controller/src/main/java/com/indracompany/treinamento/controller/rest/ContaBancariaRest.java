@@ -72,6 +72,6 @@ public class ContaBancariaRest extends GenericCrudRest<ContaBancaria, Long, Cont
 	public @ResponseBody ResponseEntity<List<OperacaoConta>> consultarExtrato(@PathVariable String agencia,
 			@PathVariable String conta) {
 		List<OperacaoConta> extrato = contaBancariaService.extratoConta(agencia, conta);
-		return new ResponseEntity<>(extrato, HttpStatus.OK);
+		return new ResponseEntity<>(extrato, HttpStatus.OK); 
 	}
 }

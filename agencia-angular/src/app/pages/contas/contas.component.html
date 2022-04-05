@@ -17,7 +17,7 @@
       <td>{{ conta.cliente.email }}</td>
       <td>{{ conta.agencia }}</td>
       <td>{{ conta.numero }}</td>
-      <td>{{ conta.saldo }}</td>
+      <td>{{ conta.saldo | currency: "BRL" }}</td>
     </tr>
   </tbody>
 </table>

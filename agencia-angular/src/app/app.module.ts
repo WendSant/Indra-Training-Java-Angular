@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ClientesComponent } from './pages/clientes/clientes.component';
+import { ClientesComponent, CpfPipe } from './pages/clientes/clientes.component';
 import { ContasComponent } from './pages/contas/contas.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -13,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     ClientesComponent,
-    ContasComponent
+    ContasComponent,
+    CpfPipe
   ],
   imports: [
     BrowserModule,

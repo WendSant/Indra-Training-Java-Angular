@@ -17,6 +17,7 @@ export class ContasComponent implements OnInit {
   listarContas(){
     this.contasService.listarTodasContas().subscribe((result: any) => {
       this.contas = result;
+      console.log('x');
       console.log(this.contas);
     });
   }

@@ -1,0 +1,33 @@
+<p>Cadastrar Clientes</p>
+{{ formCliente.value | json }}
+<form [formGroup]="formCliente" (ngSubmit)="enviar()">
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nome" formControlName="nome" />
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">E-mail</label>
+    <input
+      type="text"
+      class="form-control"
+      id="email"
+      formControlName="email"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="cpf" class="form-label">CPF</label>
+    <input type="text" class="form-control" id="cpf" formControlName="cpf" />
+  </div>
+  <div class="mb-3">
+    <label for="observacoes" class="form-label">Observações</label>
+    <textarea
+      class="form-control"
+      id="observacoes"
+      rows="3"
+      formControlName="observacoes"
+    ></textarea>
+  </div>
+  <button [disabled]="!formCliente.valid" type="submit" class="btn btn-primary">
+    Enviar
+  </button>
+</form>

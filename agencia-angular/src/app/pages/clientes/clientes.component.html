@@ -1,4 +1,8 @@
 <h1>Meus Clientes</h1>
+<button type="button" class="btn btn-primary" routerLink="cadastrar">
+  Novo
+</button>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -7,6 +11,7 @@
       <th scope="col">Cpf</th>
       <th scope="col">E-mail</th>
       <th scope="col">Observações</th>
+      <th>Ações</th>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +21,27 @@
       <td>{{ cliente.cpf | cpf }}</td>
       <td>{{ cliente.email }}</td>
       <td>{{ cliente.observacoes }}</td>
+      <td>
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Ações
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Editar</a></li>
+            <li>
+              <a class="dropdown-item" (click)="confirmar(cliente.id)"
+                >Remover</a
+              >
+            </li>
+          </ul>
+        </div>
+      </td>
     </tr>
   </tbody>
 </table>

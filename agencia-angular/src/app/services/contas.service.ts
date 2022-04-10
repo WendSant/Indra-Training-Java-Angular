@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ISaqueDeposito } from '../interfaces/deposito-saque';
+import { IDepositoSaque } from '../interfaces/deposito-saque';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,11 +17,11 @@ export class ContasService {
     return this.http.get(`${this.api}/${this.endpoint}/`)
   }
 
-  sacar(saqueDeposito: ISaqueDeposito) {
-    return this.http.post<ISaqueDeposito>(`${this.api}/${this.endpoint}/sacar`, saqueDeposito);
+  saque(saqueDeposito: IDepositoSaque) {
+    return this.http.put<IDepositoSaque>(`${this.api}/${this.endpoint}/saque`, saqueDeposito);
   }
-  deposito(deposito: ISaqueDeposito) {
-    return this.http.put<ISaqueDeposito>(`${this.api}/${this.endpoint}/deposito`, deposito)
+  deposito(deposito: IDepositoSaque) {
+    return this.http.put<IDepositoSaque>(`${this.api}/${this.endpoint}/deposito`, deposito)
   }
 
 }

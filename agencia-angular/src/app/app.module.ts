@@ -11,6 +11,7 @@ import { ClientesCadastrarEditarComponent } from './pages/clientes/clientes-cada
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CaixaComponent } from './pages/contas/caixa/caixa.component';
 import { DepositoComponent } from './pages/contas/caixa/deposito/deposito.component';
+import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DepositoComponent } from './pages/contas/caixa/deposito/deposito.compon
     ClientesCadastrarEditarComponent,
     CaixaComponent,
     DepositoComponent,
+    SaqueComponent,
   ],
   imports: [
     BrowserModule,

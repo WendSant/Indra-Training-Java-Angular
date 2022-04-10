@@ -6,17 +6,18 @@ import { ContasService } from 'src/app/services/contas.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-deposito',
-  templateUrl: './deposito.component.html',
-  styleUrls: ['./deposito.component.css']
+  selector: 'app-saque',
+  templateUrl: './saque.component.html',
+  styleUrls: ['./saque.component.css']
 })
-export class DepositoComponent implements OnInit {
+export class SaqueComponent implements OnInit {
 
   formValue: FormGroup = new FormGroup({
     agencia: new FormControl('', Validators.required),
     numeroConta: new FormControl('', Validators.required),
     valor: new FormControl('', Validators.required),
   });
+
   constructor(
     private contaService: ContasService,
     private router: Router,
@@ -25,13 +26,14 @@ export class DepositoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deposito() {
-    const deposito: IDepositoSaque = this.formValue.value;
-    this.contaService.deposito(deposito).subscribe((result => {
-      Swal.fire('Sucesso!', 'Depósito concluído!', 'success')
+  saque() {
+    const saque: IDepositoSaque = this.formValue.value;
+    this.contaService.saque(saque).subscribe((result => {
+      Swal.fire('Sucesso!', 'Saque concluído!', 'success')
       this.router.navigate(['/contas']);
     }), error => {
       console.error(error);
     });
   }
+
 }

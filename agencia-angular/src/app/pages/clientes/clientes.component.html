@@ -33,7 +33,11 @@
             Ações
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Editar</a></li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['editar', cliente.id]"
+                >Editar</a
+              >
+            </li>
             <li>
               <a class="dropdown-item" (click)="confirmar(cliente.id)"
                 >Remover</a

@@ -1,5 +1,4 @@
-<p>Cadastrar Clientes</p>
-{{ formCliente.value | json }}
+<p>{{ estaEditando() ? "Edição" : "Cadastro" }} Cliente</p>
 <form [formGroup]="formCliente" (ngSubmit)="enviar()">
   <div class="mb-3">
     <label for="nome" class="form-label">Nome</label>

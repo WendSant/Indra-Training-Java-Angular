@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <br />
+      <h1 class="display-6">
+        <i class="fas fa-comment-dollar text-success"></i> Depósito
+      </h1>
+      <hr />
+      <form [formGroup]="formValue" (ngSubmit)="deposito()">
+        <div class="agencia">
+          <label class="form-label">Agência:</label>
+          <input
+            type="string"
+            class="form-control"
+            placeholder="Digite os 4 números da agência"
+            formControlName="agencia"
+          />
+        </div>
+        <br />
+        <div class="numeroConta">
+          <label class="form-label">Número da Conta:</label>
+          <input
+            type="string"
+            class="form-control"
+            placeholder="Digite os 6 números da conta"
+            formControlName="numeroConta"
+          />
+        </div>
+        <br />
+        <div class="valor">
+          <label class="form-label">Valor <i class="fas fa-coins"></i></label>
+          <input
+            formValuetype="number"
+            class="form-control"
+            placeholder="Digite o valor aqui."
+            formControlName="valor"
+          />
+        </div>
+        <br />
+        <a routerLink="/contas" class="btn btn-dark"
+          ><i class="fas fa-chevron-circle-left"></i> Voltar</a
+        >
+        <button
+          [disabled]="!formValue.valid"
+          type="submit"
+          class="btn btn-success mx-1"
+        >
+          Depositar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

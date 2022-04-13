@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CaixaComponent } from './pages/contas/caixa/caixa.component';
 import { DepositoComponent } from './pages/contas/caixa/deposito/deposito.component';
 import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
+import { IndexComponent } from './pages/index/index.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
     CaixaComponent,
     DepositoComponent,
     SaqueComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,

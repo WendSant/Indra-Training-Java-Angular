@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class DepositoComponent implements OnInit {
 
-  formValue: FormGroup = new FormGroup({
+  formConta: FormGroup = new FormGroup({
     agencia: new FormControl('', Validators.required),
     numeroConta: new FormControl('', Validators.required),
     valor: new FormControl('', Validators.required),
@@ -26,7 +26,7 @@ export class DepositoComponent implements OnInit {
   }
 
   deposito() {
-    const deposito: IDepositoSaque = this.formValue.value;
+    const deposito: IDepositoSaque = this.formConta.value;
     this.contaService.deposito(deposito).subscribe((result => {
       Swal.fire('Sucesso!', 'Depósito concluído!', 'success')
       this.router.navigate(['/contas']);

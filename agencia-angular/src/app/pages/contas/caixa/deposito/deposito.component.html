@@ -6,7 +6,7 @@
         <i class="fas fa-comment-dollar text-success"></i> Depósito
       </h1>
       <hr />
-      <form [formGroup]="formValue" (ngSubmit)="deposito()">
+      <form [formGroup]="formConta" (ngSubmit)="deposito()">
         <div class="agencia">
           <label class="form-label">Agência:</label>
           <input
@@ -37,11 +37,11 @@
           />
         </div>
         <br />
-        <a routerLink="/contas" class="btn btn-dark"
-          ><i class="fas fa-chevron-circle-left"></i> Voltar</a
+        <a routerLink="/contas" class="btn btn-secondary"
+          ><i class="fas fa-chevron-circle-left"></i> Voltar para contas</a
         >
         <button
-          [disabled]="!formValue.valid"
+          [disabled]="!formConta.valid"
           type="submit"
           class="btn btn-success mx-1"
         >

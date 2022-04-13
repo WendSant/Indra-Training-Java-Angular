@@ -5,9 +5,13 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { DepositoComponent } from './pages/contas/caixa/deposito/deposito.component';
 import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
 import { ContasComponent } from './pages/contas/contas.component';
+import { IndexComponent } from './pages/index/index.component';
 
 
 const routes: Routes = [
+  {
+    path: '', component: IndexComponent
+  },
   {
     path: 'clientes', component: ClientesComponent
   },

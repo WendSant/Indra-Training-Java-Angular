@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientesCadastrarEditarComponent } from './pages/clientes/clientes-cadastrar-editar/clientes-cadastrar-editar.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
+import { CaixaComponent } from './pages/contas/caixa/caixa.component';
 import { DepositoComponent } from './pages/contas/caixa/deposito/deposito.component';
 import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
 import { TransferenciaComponent } from './pages/contas/caixa/transferencia/transferencia.component';
@@ -34,6 +35,9 @@ const routes: Routes = [
   },
   {
     path: 'caixa/transferencia', component: TransferenciaComponent,
+  },
+  {
+    path: 'caixa', component: CaixaComponent,
   }
 ];
 

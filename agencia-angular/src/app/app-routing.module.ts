@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
+
 import { RouterModule, Routes } from '@angular/router';
 import { ClientesCadastrarEditarComponent } from './pages/clientes/clientes-cadastrar-editar/clientes-cadastrar-editar.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { DepositoComponent } from './pages/contas/caixa/deposito/deposito.component';
 import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
+import { TransferenciaComponent } from './pages/contas/caixa/transferencia/transferencia.component';
 import { ContasComponent } from './pages/contas/contas.component';
 import { IndexComponent } from './pages/index/index.component';
 
@@ -29,6 +31,9 @@ const routes: Routes = [
   },
   {
     path: 'caixa/saque', component: SaqueComponent,
+  },
+  {
+    path: 'caixa/transferencia', component: TransferenciaComponent,
   }
 ];
 

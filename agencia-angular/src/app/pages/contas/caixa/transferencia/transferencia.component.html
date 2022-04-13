@@ -1,0 +1,56 @@
+<div class="col">
+  <h1 class="display-6">
+    <i class="fas fa-comment-dollar text-success"></i> Saque
+  </h1>
+  <hr />
+  <form [formGroup]="formTransfe" (ngSubmit)="transferir()">
+    <div class="mb-3">
+      <label class="form-label">Agência de Ogirem</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="agenciaOrigem"
+        maxlength="4"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Conta de Origem</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="numeroContaOrigem"
+        maxlength="6"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Agência de Destino</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="agenciaDestino"
+        maxlength="4"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Conta de Destino</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="numeroContaDestino"
+        maxlength="6"
+      />
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Valor</label>
+      <input type="text" class="form-control" formControlName="valor" />
+    </div>
+    <button
+      [disabled]="!formTransfe.valid"
+      type="submit"
+      class="btn btn-success mx-1"
+    >
+      Transferir
+    </button>
+    <a routerLink="/contas" class="btn btn-secondary">Voltar para contas</a>
+  </form>
+</div>

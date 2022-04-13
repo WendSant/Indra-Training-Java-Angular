@@ -2,11 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { IDepositoSaque } from '../interfaces/deposito-saque';
+import { ITransferencia } from '../interfaces/transferencia';
 @Injectable({
   providedIn: 'root'
 })
 export class ContasService {
-  endpointDeposito = "deposito/";
 
   api = environment.api;
 
@@ -22,6 +22,9 @@ export class ContasService {
   }
   deposito(deposito: IDepositoSaque) {
     return this.http.put<IDepositoSaque>(`${this.api}/${this.endpoint}/deposito`, deposito)
+  }
+  transferencia(transferencia: ITransferencia) {
+    return this.http.put(`${this.api}/${this.endpoint}/transferencia`, transferencia);
   }
 
 }

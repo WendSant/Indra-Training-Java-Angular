@@ -13,6 +13,7 @@ import { CaixaComponent } from './pages/contas/caixa/caixa.component';
 import { DepositoComponent } from './pages/contas/caixa/deposito/deposito.component';
 import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
 import { IndexComponent } from './pages/index/index.component';
+import { TransferenciaComponent } from './pages/contas/caixa/transferencia/transferencia.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { IndexComponent } from './pages/index/index.component';
     DepositoComponent,
     SaqueComponent,
     IndexComponent,
+    TransferenciaComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IConta } from 'src/app/interfaces/conta';
 import { ContasService } from 'src/app/services/contas.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contas',
@@ -9,7 +11,7 @@ import { ContasService } from 'src/app/services/contas.service';
 export class ContasComponent implements OnInit {
 
   constructor(private contasService: ContasService) { }
-  contas: any[] = [];
+  contas: IConta[] = [];
   ngOnInit(): void {
     this.listarContas();
   }
@@ -17,11 +19,18 @@ export class ContasComponent implements OnInit {
   listarContas(){
     this.contasService.listarTodasContas().subscribe((result: any) => {
       this.contas = result;
-      console.log('x');
-      console.log(this.contas);
     });
   }
 
+  confirmar(id: any){
+    Swal.fire({ title: 'Você tem certeza?', text: "Você não pode reverter isto", icon: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33',cancelButtonText:"Cancelar", confirmButtonText: 'Sim, remova!' }).then((result) => { if (result.isConfirmed) { this.contasService.removerConta(id).subscribe(result =>{
+      Swal.fire( 'Removido!', 'Conta deletado com sucesso', 'success');
+      this.listarContas();
+    }, error => {
+      console.error(error);
+    });  } })
+
+  }
 
 
 }

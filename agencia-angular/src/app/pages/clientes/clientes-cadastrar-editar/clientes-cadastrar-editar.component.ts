@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class ClientesCadastrarEditarComponent implements OnInit {
 
   emptyCliente: ICliente={
-    id: 0,
+    id: '',
     nome: '',
     cpf: '',
     email: '',
@@ -27,7 +27,7 @@ export class ClientesCadastrarEditarComponent implements OnInit {
   constructor(private clientesService: ClientesService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id){
       this.clientesService.buscarPorId(id).subscribe((result: ICliente)=>{
         this.formCliente = this.preencheFormGroup(result);

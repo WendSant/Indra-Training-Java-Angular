@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ClientesComponent, CpfPipe } from './pages/clientes/clientes.component';
+import { ClientesComponent, } from './pages/clientes/clientes.component';
 import { ContasComponent } from './pages/contas/contas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientesCadastrarEditarComponent } from './pages/clientes/clientes-cadastrar-editar/clientes-cadastrar-editar.component';
@@ -14,6 +14,8 @@ import { DepositoComponent } from './pages/contas/caixa/deposito/deposito.compon
 import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
 import { IndexComponent } from './pages/index/index.component';
 import { TransferenciaComponent } from './pages/contas/caixa/transferencia/transferencia.component';
+import { ContasCadastrarEditarComponent } from './pages/contas/contas-cadastrar-editar/contas-cadastrar-editar.component';
+import { CpfPipe } from './shared/pipes/cpf.pipe';
 
 
 @NgModule({
@@ -22,13 +24,14 @@ import { TransferenciaComponent } from './pages/contas/caixa/transferencia/trans
     HeaderComponent,
     ClientesComponent,
     ContasComponent,
-    CpfPipe,
     ClientesCadastrarEditarComponent,
     CaixaComponent,
     DepositoComponent,
     SaqueComponent,
     IndexComponent,
     TransferenciaComponent,
+    ContasCadastrarEditarComponent,
+    CpfPipe
   ],
   imports: [
     BrowserModule,

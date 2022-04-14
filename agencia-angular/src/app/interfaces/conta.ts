@@ -1,9 +1,17 @@
-import { ICliente } from "./cliente";
+import { ClienteContaResponse, ICliente } from "./cliente";
 
 export interface IConta {
-    id:number;
+    id:string;
     agencia: string;
     numero: string;
     saldo: number;
-    cliente: ICliente;
+    cliente: ICliente ;
+}
+
+export interface IContaCreatedResponse {
+  id?:string;
+  agencia: string;
+  numero: string;
+  saldo: number;
+  cliente: ClienteContaResponse ;
 }

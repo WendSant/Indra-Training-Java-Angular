@@ -7,6 +7,7 @@ import { CaixaComponent } from './pages/contas/caixa/caixa.component';
 import { DepositoComponent } from './pages/contas/caixa/deposito/deposito.component';
 import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
 import { TransferenciaComponent } from './pages/contas/caixa/transferencia/transferencia.component';
+import { ContasCadastrarEditarComponent } from './pages/contas/contas-cadastrar-editar/contas-cadastrar-editar.component';
 import { ContasComponent } from './pages/contas/contas.component';
 import { IndexComponent } from './pages/index/index.component';
 
@@ -20,6 +21,12 @@ const routes: Routes = [
   },
   {
     path: 'contas', component: ContasComponent
+  },
+  {
+    path: 'contas/cadastrar', component: ContasCadastrarEditarComponent
+  },
+  {
+    path: 'contas/editar/:id', component: ContasCadastrarEditarComponent
   },
   {
     path: 'clientes/cadastrar', component: ClientesCadastrarEditarComponent

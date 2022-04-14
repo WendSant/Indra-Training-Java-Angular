@@ -1,8 +1,11 @@
 export interface ICliente {
-    id: number;
+    id: any;
     nome: string;
     cpf: string;
     email: string;
     observacoes: string;
-    ativo?:boolean;
+    ativo:boolean;
+}
+export interface ClienteContaResponse {
+  id: string;
 }

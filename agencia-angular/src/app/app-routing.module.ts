@@ -26,6 +26,9 @@ const routes: Routes = [
     path: 'contas/cadastrar', component: ContasCadastrarEditarComponent
   },
   {
+    path: 'contas/cadastrar/:id', component: ContasCadastrarEditarComponent
+  },
+  {
     path: 'contas/editar/:id', component: ContasCadastrarEditarComponent
   },
   {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ICliente } from 'src/app/interfaces/cliente';
+import { ClienteContaResponse, ICliente } from 'src/app/interfaces/cliente';
 
 import { IConta, IContaCreatedResponse } from 'src/app/interfaces/conta';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -19,6 +19,7 @@ export class ContasCadastrarEditarComponent implements OnInit {
   hasCliente: boolean = false;
   hasConta: boolean = false;
   idCliente: string = '';
+  cpfString: string = '';
 
   // emptyContas: IConta={
   //   id:0,
@@ -36,10 +37,15 @@ export class ContasCadastrarEditarComponent implements OnInit {
 
   ngOnInit(): void {
     this.formCliente
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log(this.activatedRoute.snapshot.paramMap.get('id'))
+    console.log("this is "+id)
     if (id){
-      this.contasService.buscarPorId(id).subscribe((result: IConta)=>{
-        this.formConta = this.preencheFormGroup();
+      this.clientesService.buscarPorId(id).subscribe((result: ICliente )=>{
+        this.cpfString = result.cpf
+        this.formConta = this.preencheFormGroupTeste(result.cpf);
+        this.buscarClienteCpf();
+        this.exibirCriarConta();
       }, error => {
         console.error(error);
       });
@@ -71,6 +77,11 @@ export class ContasCadastrarEditarComponent implements OnInit {
       return
     }
     this.hasConta = true
+  }
+  preencheFormGroupTeste(cpf: string){
+    return this.formConta= new FormGroup({
+      cpf: new FormControl(cpf)
+    })
   }
 
   preencheFormGroup(){
@@ -114,7 +125,14 @@ export class ContasCadastrarEditarComponent implements OnInit {
     this.contasService.cadastrarEditar(conta).subscribe(result => {
       Swal.fire('Sucesso!!', `${this.estaEditando() ? 'Editado' : 'Cadastrado'} com sucesso!`, 'success' );
       this.router.navigate(['/contas']);
+    }, error => {
+      Swal.fire('Erro!', `Houve um erro na ${this.estaEditando() ? 'edição' : 'criação'} da conta`, 'error');
+      console.error(error);
     });
+  }
+
+  cadastroContaUsandoCliente(){
+
   }
 
   estaEditando(){

@@ -23,7 +23,7 @@ export class ClientesComponent implements OnInit {
     });
   }
 
-  confirmar(id: string){
+  confirmar(id: number){
     Swal.fire({ title: 'Você tem certeza?', text: "Você não pode reverter isto", icon: 'warning', showCancelButton: true, confirmButtonColor: '#3085d6', cancelButtonColor: '#d33',cancelButtonText:"Cancelar", confirmButtonText: 'Sim, remova!' }).then((result) => { if (result.isConfirmed) { this.clienteService.remover(id).subscribe(result =>{
       Swal.fire( 'Removido!', 'Cliente deletado com sucesso', 'success');
       this.listarTodos();

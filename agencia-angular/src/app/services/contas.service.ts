@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { ICliente } from '../interfaces/cliente';
 import { IConta, IContaCreatedResponse } from '../interfaces/conta';
 import { IDepositoSaque } from '../interfaces/deposito-saque';
 import { ITransferencia } from '../interfaces/transferencia';
@@ -39,6 +40,9 @@ export class ContasService {
   }
   buscarPorId(id: number){
     return this.http.get<IConta>(`${this.api}/${this.endpoint}/${id}`);
+  }
+  buscarPorIdCliente(id: string){
+    return this.http.get<ICliente>(`${this.api}/clientes/${id}`);
   }
 
 

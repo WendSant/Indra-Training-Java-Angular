@@ -22,13 +22,14 @@ export class ClientesService {
     return this.http.post(`${this.api}/${this.endpoint}/`, cliente);
   }
 
-  remover(id: string){
+  remover(id: number){
     return this.http.delete(`${this.api}/${this.endpoint}/${id}`);
   }
 
   buscarPorId(id: string){
     return this.http.get<ICliente>(`${this.api}/${this.endpoint}/${id}`);
   }
+
 
   buscarClienteCpf(cpf: string){
     return this.http.get(`${this.api}/${this.endpoint}/buscarPorCpf/${cpf}`);

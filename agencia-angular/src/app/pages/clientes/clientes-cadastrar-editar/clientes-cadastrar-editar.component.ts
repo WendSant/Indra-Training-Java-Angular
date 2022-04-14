@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 export class ClientesCadastrarEditarComponent implements OnInit {
 
   emptyCliente: ICliente={
-    id: '',
+    id: 0,
     nome: '',
     cpf: '',
     email: '',

@@ -1,7 +1,7 @@
 <h1 style="margin-left: 10px">Contas</h1>
-<!-- <button type="button" class="btn btn-primary" routerLink="cadastrar">
+<button type="button" class="btn btn-primary" routerLink="cadastrar">
   Novo
-</button> -->
+</button>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -33,6 +33,25 @@
             Ações
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/caixa/deposito', conta.id]"
+                >Depositar</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" [routerLink]="['/caixa/saque', conta.id]"
+                >Sacar</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                [routerLink]="['/caixa/transferencia', conta.id]"
+                >Transferência</a
+              >
+            </li>
             <li>
               <a class="dropdown-item" [routerLink]="['editar', conta.id]"
                 >Editar</a

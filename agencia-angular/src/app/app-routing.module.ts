@@ -41,10 +41,19 @@ const routes: Routes = [
     path: 'caixa/deposito', component: DepositoComponent,
   },
   {
+    path: 'caixa/deposito/:id', component: DepositoComponent,
+  },
+  {
     path: 'caixa/saque', component: SaqueComponent,
   },
   {
+    path: 'caixa/saque/:id', component: SaqueComponent,
+  },
+  {
     path: 'caixa/transferencia', component: TransferenciaComponent,
+  },
+  {
+    path: 'caixa/transferencia/:id', component: TransferenciaComponent,
   },
   {
     path: 'caixa', component: CaixaComponent,

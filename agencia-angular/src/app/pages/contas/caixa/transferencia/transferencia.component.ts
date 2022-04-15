@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { IConta } from 'src/app/interfaces/conta';
 import { ITransferencia } from 'src/app/interfaces/transferencia';
 import { ContasService } from 'src/app/services/contas.service';
 import Swal from 'sweetalert2';
@@ -23,6 +24,12 @@ export class TransferenciaComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id){
+      this.transferenciaService.buscarPorIdString(id).subscribe((result: IConta) => {
+        this.formTransfe = this.preencheTransf(result);
+      })
+    }
   }
 
   transferir() {
@@ -35,5 +42,17 @@ export class TransferenciaComponent implements OnInit {
       console.error(error);
     });
   }
+
+  preencheTransf(conta?: IConta){
+    return this.formTransfe = new FormGroup({
+      agenciaOrigem: new FormControl(conta?.agencia, Validators.required),
+      numeroContaOrigem: new FormControl(conta?.numero, Validators.required),
+      valor: new FormControl(null, Validators.required),
+      agenciaDestino: new FormControl(null, Validators.required),
+      numeroContaDestino: new FormControl(null, Validators.required),
+    })
+  }
+
+
 
 }

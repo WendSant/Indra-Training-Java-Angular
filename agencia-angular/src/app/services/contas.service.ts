@@ -30,17 +30,25 @@ export class ContasService {
   }
 
   cadastrarEditar(conta: IContaCreatedResponse){
-    if(conta.id){
-      return this.http.put(`${this.api}/${this.endpoint}/${conta.id}`, conta);
-    }
     return this.http.post(`${this.api}/${this.endpoint}/`, conta);
   }
+
+  editarConta(conta: IContaCreatedResponse){
+    return this.http.put(`${this.api}/${this.endpoint}/${conta.id}`, conta);
+  }
+
   removerConta(id: string){
     return this.http.delete(`${this.api}/${this.endpoint}/${id}`);
   }
+
   buscarPorId(id: number){
     return this.http.get<IConta>(`${this.api}/${this.endpoint}/${id}`);
   }
+
+  buscarPorIdString(id: string){
+    return this.http.get<IConta>(`${this.api}/${this.endpoint}/${id}`);
+  }
+
   buscarPorIdCliente(id: string){
     return this.http.get<ICliente>(`${this.api}/clientes/${id}`);
   }

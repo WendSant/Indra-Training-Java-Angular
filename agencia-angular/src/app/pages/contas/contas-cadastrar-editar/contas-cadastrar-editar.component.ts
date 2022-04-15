@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ICliente } from 'src/app/interfaces/cliente';
+import { ClienteContaResponse, ICliente } from 'src/app/interfaces/cliente';
 
 import { IConta, IContaCreatedResponse } from 'src/app/interfaces/conta';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -19,7 +19,8 @@ export class ContasCadastrarEditarComponent implements OnInit {
   hasCliente: boolean = false;
   hasConta: boolean = false;
   idCliente: string = '';
-
+  urlEditar: boolean = false;
+  resultado: any;
   // emptyContas: IConta={
   //   id:0,
   //   agencia: '',
@@ -35,11 +36,25 @@ export class ContasCadastrarEditarComponent implements OnInit {
   constructor(private contasService: ContasService, private clientesService: ClientesService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.formCliente
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    if (id){
-      this.contasService.buscarPorId(id).subscribe((result: IConta)=>{
-        this.formConta = this.preencheFormGroup();
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.urlEditar = !(this.router.url === "/contas/editar/"+id)
+    if (this.router.url === "/contas/editar/"+id){
+      if (id){
+        this.contasService.buscarPorIdString(id).subscribe((result: IConta) =>{
+          this.formConta = this.preencheFormGroup(result.cliente.cpf);
+          this.buscarClienteCpf();
+          this.exibirCriarConta();
+          this.preencheCriarConta(result);
+          this.resultado = result;
+        }, error =>{
+          console.error(error);
+        })
+      }
+    }else if (id){
+      this.clientesService.buscarPorId(id).subscribe((result: ICliente )=>{
+        this.formConta = this.preencheFormGroup(result.cpf);
+        this.buscarClienteCpf();
+        this.exibirCriarConta();
       }, error => {
         console.error(error);
       });
@@ -72,10 +87,15 @@ export class ContasCadastrarEditarComponent implements OnInit {
     }
     this.hasConta = true
   }
+  // preencheFormGroupTeste(cpf: string){
+  //   return this.formConta= new FormGroup({
+  //     cpf: new FormControl(cpf)
+  //   })
+  // }
 
-  preencheFormGroup(){
+  preencheFormGroup(cpf?: string){
     return this.formConta= new FormGroup({
-      cpf: new FormControl(null)
+      cpf: new FormControl(null || cpf)
     })
   }
 
@@ -87,11 +107,11 @@ export class ContasCadastrarEditarComponent implements OnInit {
     })
   }
 
-  preencheCriarConta(){
+  preencheCriarConta(conta?: IConta){
     return this.formCriarConta = new FormGroup({
-      agencia: new FormControl(null, Validators.required),
-      numeroConta: new FormControl(null, Validators.required),
-      saldo: new FormControl(null, Validators.required),
+      agencia: new FormControl(conta?.agencia || null, Validators.required),
+      numeroConta: new FormControl(conta?.numero || null, Validators.required),
+      saldo: new FormControl(conta?.saldo || null, Validators.required),
       idCliente: new FormControl(this.idCliente, Validators.required)
     })
   }
@@ -109,17 +129,30 @@ export class ContasCadastrarEditarComponent implements OnInit {
     return conta;
   }
 
+  editarConta(res: IContaCreatedResponse){
+    const conta = this.montarPayLoad(this.formCriarConta);
+    conta.id = res.id
+    this.contasService.editarConta(conta).subscribe(result => {
+      Swal.fire('Sucesso!!', `Editado com sucesso!`, 'success' );
+      this.router.navigate(['/contas']);
+    }, error => {
+      Swal.fire('Erro!', `Houve um erro na edição da conta`, 'error');
+      console.error(error);
+    });
+  }
+
   enviar(){
     const conta = this.montarPayLoad(this.formCriarConta.value);
     this.contasService.cadastrarEditar(conta).subscribe(result => {
-      Swal.fire('Sucesso!!', `${this.estaEditando() ? 'Editado' : 'Cadastrado'} com sucesso!`, 'success' );
+      Swal.fire('Sucesso!!', `Cadastrado com sucesso!`, 'success' );
       this.router.navigate(['/contas']);
+    }, error => {
+      Swal.fire('Erro!', `Houve um erro na criação da conta`, 'error');
+      console.error(error);
     });
   }
 
   estaEditando(){
     return !!this.formConta.get("id")?.value;
   }
-
-
 }

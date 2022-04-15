@@ -110,8 +110,22 @@
         formControlName="saldo"
       />
     </div>
-    <button type="submit" class="btn btn-primary" (click)="enviar()">
+
+    <button
+      *ngIf="urlEditar"
+      type="submit"
+      class="btn btn-primary"
+      (click)="enviar()"
+    >
       Enviar Conta
+    </button>
+    <button
+      *ngIf="!urlEditar"
+      type="submit"
+      class="btn btn-primary"
+      (click)="editarConta(resultado)"
+    >
+      Editar Conta
     </button>
   </form>
 </div>

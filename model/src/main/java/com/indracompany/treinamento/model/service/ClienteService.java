@@ -18,22 +18,21 @@ public class ClienteService extends GenericCrudService<Cliente, Long, ClienteRep
 	
 	@Override
 	public Cliente salvar(Cliente cli) throws AplicacaoException {
-		
-		Cliente c = this.buscarCliente(cli.getCpf());
-		 
-		if (c != null) {
-			
-			if (cli.getId() == null) {
-				throw new AplicacaoException(ExceptionValidacoes.ERRO_CPF_JA_CADASTRADO);
-			}
-			
-			if (!cli.getId().equals(c.getId())) {
-				throw new AplicacaoException(ExceptionValidacoes.ERRO_CPF_JA_CADASTRADO);
-			}
+		   
+		   if (cli.getId() != null) {
+		      Cliente c = this.buscarCliente(cli.getCpf());
+		      if (c != null) {
+		         if (cli.getId() == null) {
+		            throw new AplicacaoException(ExceptionValidacoes.ERRO_CPF_JA_CADASTRADO);
+		         }
+		         if (!cli.getId().equals(c.getId())) {
+		            throw new AplicacaoException(ExceptionValidacoes.ERRO_CPF_JA_CADASTRADO);
+		         }
+		      }
+		   }
+		   
+		   return super.salvar(cli);
 		}
-		
-		return super.salvar(cli);
-	}
 
 	public Cliente buscarCliente(String cpf) { 
 
@@ -49,6 +48,7 @@ public class ClienteService extends GenericCrudService<Cliente, Long, ClienteRep
 			throw new AplicacaoException(ExceptionValidacoes.ALERTA_NENHUM_REGISTRO_ENCONTRADO);
 		}
 
+		
 		return cliente;
 	}
 
@@ -65,11 +65,11 @@ public class ClienteService extends GenericCrudService<Cliente, Long, ClienteRep
 			throw new AplicacaoException(ExceptionValidacoes.ALERTA_NENHUM_REGISTRO_ENCONTRADO);
 		}
 
-		ClienteDTO retorno = new ClienteDTO();
 		ClienteDTO dto = new ClienteDTO();
+		dto.setId(c.getId());
 		dto.setEmail(c.getEmail());
 		dto.setNome(c.getNome());
-		return retorno;
+		return dto;
 	}
 
 	public List<ClienteDTO> buscarClientesPorNome(String nome){

@@ -3,6 +3,7 @@ import { ClientesService } from 'src/app/services/clientes.service';
 import { Pipe, PipeTransform } from '@angular/core';
 import { ICliente } from 'src/app/interfaces/cliente';
 import Swal from 'sweetalert2';
+import { ContasService } from 'src/app/services/contas.service';
 
 @Component({
   selector: 'app-clientes',
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ClientesComponent implements OnInit {
 
-  constructor(private clienteService: ClientesService) { }
+  constructor(private clienteService: ClientesService, private contasService: ContasService) { }
   clientes: ICliente[] = [];
   ngOnInit(): void {
     this.listarTodos();
@@ -21,6 +22,10 @@ export class ClientesComponent implements OnInit {
     this.clienteService.listarTodosClientes().subscribe((result: ICliente[]) => {
       this.clientes = result;
     });
+  }
+
+  listarContasCpf(){
+
   }
 
   confirmar(id: number){

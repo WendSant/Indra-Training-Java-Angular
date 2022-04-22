@@ -32,6 +32,9 @@ const routes: Routes = [
     path: 'contas/editar/:id', component: ContasCadastrarEditarComponent
   },
   {
+    path: 'contas/:cpf', component: ContasComponent
+  },
+  {
     path: 'clientes/cadastrar', component: ClientesCadastrarEditarComponent
   },
   {

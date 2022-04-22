@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IConta } from 'src/app/interfaces/conta';
 import { ContasService } from 'src/app/services/contas.service';
 import Swal from 'sweetalert2';
@@ -10,14 +11,25 @@ import Swal from 'sweetalert2';
 })
 export class ContasComponent implements OnInit {
 
-  constructor(private contasService: ContasService) { }
+  constructor(private contasService: ContasService, private router: Router, private activatedRoute: ActivatedRoute) { }
   contas: IConta[] = [];
   ngOnInit(): void {
+    const cpf = this.activatedRoute.snapshot.paramMap.get('cpf');
+    console.log("ESTA MISERA DE CPF ESTA AQUI: "+cpf)
+    if(cpf){
+      this.listarContasCpf(cpf);
+    }
     this.listarContas();
   }
 
   listarContas(){
     this.contasService.listarTodasContas().subscribe((result: any) => {
+      this.contas = result;
+    });
+  }
+
+  listarContasCpf(cpf:string){
+    this.contasService.buscarContaPorCpf(cpf).subscribe((result: any) => {
       this.contas = result;
     });
   }

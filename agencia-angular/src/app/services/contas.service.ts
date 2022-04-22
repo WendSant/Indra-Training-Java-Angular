@@ -49,6 +49,10 @@ export class ContasService {
     return this.http.get<IConta>(`${this.api}/${this.endpoint}/${id}`);
   }
 
+  buscarContaPorCpf(cpf: string){
+    return this.http.get(`${this.api}/${this.endpoint}/consultar-contas-por-cpf/${cpf}`);
+  }
+
   buscarPorIdCliente(id: string){
     return this.http.get<ICliente>(`${this.api}/clientes/${id}`);
   }

@@ -98,8 +98,6 @@ public class ContaBancariaService extends GenericCrudService<ContaBancaria, Long
 		for (ContaBancaria conta : listaContasCliente) {
 			ConsultaContaBancariaDTO dtoConta = new ConsultaContaBancariaDTO();
 			BeanUtils.copyProperties(conta, dtoConta);
-			dtoConta.setCpf(conta.getCliente().getCpf());
-			dtoConta.setNomeTitular(conta.getCliente().getNome());
 			listaContasRetorno.add(dtoConta);
 		}
 

@@ -14,22 +14,11 @@ export class ContasComponent implements OnInit {
   constructor(private contasService: ContasService, private router: Router, private activatedRoute: ActivatedRoute) { }
   contas: IConta[] = [];
   ngOnInit(): void {
-    const cpf = this.activatedRoute.snapshot.paramMap.get('cpf');
-    console.log("ESTA MISERA DE CPF ESTA AQUI: "+cpf)
-    if(cpf){
-      this.listarContasCpf(cpf);
-    }
     this.listarContas();
   }
 
   listarContas(){
     this.contasService.listarTodasContas().subscribe((result: any) => {
-      this.contas = result;
-    });
-  }
-
-  listarContasCpf(cpf:string){
-    this.contasService.buscarContaPorCpf(cpf).subscribe((result: any) => {
       this.contas = result;
     });
   }
@@ -41,8 +30,5 @@ export class ContasComponent implements OnInit {
     }, error => {
       console.error(error);
     });  } })
-
   }
-
-
 }

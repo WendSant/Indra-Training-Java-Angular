@@ -15,3 +15,11 @@ export interface IContaCreatedResponse {
   saldo: number;
   cliente: ClienteContaResponse ;
 }
+
+export interface IContaBuscaCpf{
+  agencia: string,
+  cpf: string,
+  nomeTitular: string;
+  numero: string,
+  saldo: number
+}

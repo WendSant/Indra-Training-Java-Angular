@@ -9,6 +9,7 @@ import { SaqueComponent } from './pages/contas/caixa/saque/saque.component';
 import { TransferenciaComponent } from './pages/contas/caixa/transferencia/transferencia.component';
 import { ContasCadastrarEditarComponent } from './pages/contas/contas-cadastrar-editar/contas-cadastrar-editar.component';
 import { ContasComponent } from './pages/contas/contas.component';
+import { ListaContasCpfComponent } from './pages/contas/lista-contas-cpf/lista-contas-cpf.component';
 import { IndexComponent } from './pages/index/index.component';
 
 
@@ -32,7 +33,7 @@ const routes: Routes = [
     path: 'contas/editar/:id', component: ContasCadastrarEditarComponent
   },
   {
-    path: 'contas/:cpf', component: ContasComponent
+    path: 'contas/:cpf', component: ListaContasCpfComponent
   },
   {
     path: 'clientes/cadastrar', component: ClientesCadastrarEditarComponent

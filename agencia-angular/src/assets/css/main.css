@@ -1,0 +1,21 @@
+body {
+  background-image: linear-gradient(
+    to bottom,
+    #32c2e0,
+    #00a8f3,
+    #008aff,
+    #0064ff,
+    #0020ee
+  );
+  /* background-image: linear-gradient(
+    to bottom,
+    #ececec,
+    #e4e4e4,
+    #dcdcdc,
+    #d5d5d5,
+    #cdcdcd
+  ); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}

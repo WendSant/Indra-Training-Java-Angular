@@ -1,0 +1,38 @@
+* {
+  list-style-type: none;
+}
+
+.container1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin: 2rem auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+.container2 {
+  padding: 10px;
+}
+
+.cabecalhoLista {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #0d6efd;
+}
+
+.nameConta {
+  padding-top: 12px;
+  font-size: 24px;
+  display: inline;
+  color: white;
+}
+
+.acoes {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  justify-content: center;
+}

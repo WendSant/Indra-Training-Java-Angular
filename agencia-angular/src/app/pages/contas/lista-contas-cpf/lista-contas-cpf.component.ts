@@ -12,10 +12,10 @@ export class ListaContasCpfComponent implements OnInit {
 
   constructor(private contasService: ContasService, private router: Router, private activatedRoute: ActivatedRoute) { }
   contas: IConta[] = [];
+  contasTeste: any;
   ngOnInit(): void {
     const cpf = this.activatedRoute.snapshot.paramMap.get('cpf');
     if(cpf){
-      console.log(this.contas)
       this.listarContasCpf(cpf);
     }
   }

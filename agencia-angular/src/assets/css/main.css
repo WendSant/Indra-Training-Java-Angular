@@ -15,7 +15,8 @@ body {
     #d5d5d5,
     #cdcdcd
   ); */
-  background-repeat: no-repeat;
+  background-repeat: round;
   background-size: cover;
   height: 100vh;
+  overflow: auto;
 }

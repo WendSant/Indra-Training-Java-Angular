@@ -9,14 +9,55 @@
     <h3 class="nameConta">Contas</h3>
   </section>
   <section class="container2">
-    <div style="display: flex; flex-direction: row">
-      <h4>Nome do cliente</h4>
-      <br />
-      <input type="string" value="{{ contas[0].cliente.nome }}" disabled />
-      <h4>E-mail do cliente</h4>
-      <input value="{{ contas[0].cliente.email }}" disabled />
-      <h4>Cpf do cliente</h4>
-      <input value="{{ contas[0].cliente.cpf }}" disabled />
+    <div class="infoCliente">
+      <div class="input-group mb-3">
+        <span
+          style="background-color: #0d6efd; color: white"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+          >Nome do cliente:
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          value="{{ contas[0].cliente.nome }}"
+          disabled
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span
+          style="background-color: #0d6efd; color: white"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+          >E-mail do cliente:
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          value="{{ contas[0].cliente.email }}"
+          disabled
+        />
+      </div>
+      <div class="input-group mb-3">
+        <span
+          style="background-color: #0d6efd; color: white"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+          >CPF do cliente:&nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          value="{{ contas[0].cliente.cpf | cpf }}"
+          disabled
+        />
+      </div>
     </div>
     <br />
     <h3>Lista de contas:</h3>
@@ -103,9 +144,59 @@
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item">Remover</a>
+                  <a class="dropdown-item" (click)="confirmar(conta.id)"
+                    >Remover</a
+                  >
                 </li>
               </ul>
+            </div>
+            <div class="acoesMobile">
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton1"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Ações
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      [routerLink]="['/caixa/deposito', conta.id]"
+                      >Depositar</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      [routerLink]="['/caixa/saque', conta.id]"
+                      >Sacar</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      [routerLink]="['/caixa/transferencia', conta.id]"
+                      >Transferência</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      [routerLink]="['/contas/editar', conta.id]"
+                      >Editar</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" (click)="confirmar(conta.id)"
+                      >Remover</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
           </td>
         </tr>

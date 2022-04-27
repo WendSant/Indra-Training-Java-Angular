@@ -17,6 +17,7 @@ import { TransferenciaComponent } from './pages/contas/caixa/transferencia/trans
 import { ContasCadastrarEditarComponent } from './pages/contas/contas-cadastrar-editar/contas-cadastrar-editar.component';
 import { CpfPipe } from './shared/pipes/cpf.pipe';
 import { ListaContasCpfComponent } from './pages/contas/lista-contas-cpf/lista-contas-cpf.component';
+import { ExtratoComponent } from './pages/contas/caixa/extrato/extrato.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ListaContasCpfComponent } from './pages/contas/lista-contas-cpf/lista-c
     TransferenciaComponent,
     ContasCadastrarEditarComponent,
     CpfPipe,
-    ListaContasCpfComponent
+    ListaContasCpfComponent,
+    ExtratoComponent
   ],
   imports: [
     BrowserModule,

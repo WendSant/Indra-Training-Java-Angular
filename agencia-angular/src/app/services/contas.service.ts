@@ -57,6 +57,9 @@ export class ContasService {
     return this.http.get<ICliente>(`${this.api}/clientes/${id}`);
   }
 
+  consultaExtrato(agencia: string, conta: string){
+    return this.http.get(`${this.api}/${this.endpoint}/consultar-extrato/${agencia}/${conta}`);
+  }
 
 
 }

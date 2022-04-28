@@ -76,6 +76,11 @@ h4 {
   box-sizing: border-box;
 }
 
+/* .containerTeste {
+  display: flex;
+  justify-content: center;
+} */
+
 @media (max-width: 991px) {
   .acoesMobile {
     display: block;

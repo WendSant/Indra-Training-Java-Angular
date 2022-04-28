@@ -19,107 +19,83 @@
       /></a>
     </div>
   </section>
+  <br />
   <div class="containerTeste">
-    <div class="row">
-      <div class="col">
-        <br />
-        <form class="testedo" [formGroup]="formSaque" (ngSubmit)="saque()">
-          <!-- <div class="agencia">
-                <label class="form-label">Agência:</label>
-                <input
-                  type="string"
-                  class="form-control"
-                  placeholder="Digite os 4 números da agência"
-                  formControlName="agencia"
-                />
-              </div> -->
-          <div class="input-group mb-3" style="display: flex">
-            <span
-              style="background-color: #0d6efd; color: white"
-              class="input-group-text"
-              id="inputGroup-sizing-default"
-              >Agência da conta:
-            </span>
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Digite os 4 números da agência"
-              formControlName="agencia"
-            />
-          </div>
-          <br />
-          <!-- <div class="numeroConta">
-                <label class="form-label">Número da Conta:</label>
-                <input
-                  type="string"
-                  class="form-control"
-                  placeholder="Digite os 6 números da conta"
-                  formControlName="numeroConta"
-                />
-              </div> -->
-          <div
-            class="input-group mb-3"
-            style="display: flex; flex-direction: row"
-          >
-            <span
-              style="background-color: #0d6efd; color: white"
-              class="input-group-text"
-              id="inputGroup-sizing-default"
-              >Numero da conta:
-            </span>
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Digite os 6 números da conta"
-              formControlName="numeroConta"
-            />
-          </div>
-          <br />
-          <!-- <div class="valor">
-                <label class="form-label">Valor <i class="fas fa-coins"></i></label>
-                <input
-                  formValuetype="number"
-                  class="form-control"
-                  placeholder="Digite o valor aqui."
-                  formControlName="valor"
-                />
-              </div> -->
-          <div class="input-group mb-3" style="display: flex">
-            <span
-              style="background-color: #0d6efd; color: white"
-              class="input-group-text"
-              id="inputGroup-sizing-default"
-              >Valor do Saque:
-            </span>
-            <input
-              type="text"
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              placeholder="Digite o valor aqui."
-              formControlName="valor"
-            />
-          </div>
-          <br />
-          <button
-            [disabled]="!formSaque.valid"
-            type="submit"
-            class="btn btn-success"
-            style="
-              font-size: 1.3rem;
-              display: flex;
-              align-self: center;
-              margin-bottom: 1rem;
-            "
-          >
-            Sacar
-          </button>
-        </form>
+    <br />
+    <br />
+    <form
+      style="width: 35%"
+      class="testedo"
+      [formGroup]="formSaque"
+      (ngSubmit)="saque()"
+    >
+      <div class="input-group mb-3">
+        <span
+          style="background-color: #0d6efd; color: white; width: 10rem"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+          >Agência da conta:
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          placeholder="Digite os 4 números da agência"
+          formControlName="agencia"
+          style="width: 10rem"
+        />
       </div>
-    </div>
+      <br />
+      <div class="input-group mb-3" style="display: flex; flex-direction: row">
+        <span
+          style="background-color: #0d6efd; color: white; width: 10rem"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+          >Numero da conta:
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          placeholder="Digite os 6 números da conta"
+          formControlName="numeroConta"
+          style="width: 10rem"
+        />
+      </div>
+      <br />
+      <div class="input-group mb-3" style="display: flex">
+        <span
+          style="background-color: #0d6efd; color: white; width: 10rem"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+          >Valor do Saque:
+        </span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+          placeholder="Digite o valor aqui."
+          formControlName="valor"
+          style="width: 10rem"
+        />
+      </div>
+      <br />
+      <button
+        [disabled]="!formSaque.valid"
+        type="submit"
+        class="btn btn-success"
+        style="
+          font-size: 1.3rem;
+          display: flex;
+          align-self: center;
+          margin-bottom: 1rem;
+        "
+      >
+        Sacar
+      </button>
+    </form>
   </div>
 </div>

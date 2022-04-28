@@ -18,6 +18,7 @@ import { ContasCadastrarEditarComponent } from './pages/contas/contas-cadastrar-
 import { CpfPipe } from './shared/pipes/cpf.pipe';
 import { ListaContasCpfComponent } from './pages/contas/lista-contas-cpf/lista-contas-cpf.component';
 import { ExtratoComponent } from './pages/contas/caixa/extrato/extrato.component';
+import { LocalDateTimePipe } from './shared/pipes/local-date-time.pipe';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ExtratoComponent } from './pages/contas/caixa/extrato/extrato.component
     ContasCadastrarEditarComponent,
     CpfPipe,
     ListaContasCpfComponent,
-    ExtratoComponent
+    ExtratoComponent,
+    LocalDateTimePipe
   ],
   imports: [
     BrowserModule,

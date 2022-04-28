@@ -76,6 +76,11 @@
                 >
               </li>
               <li>
+                <a class="dropdown-item" [routerLink]="['extrato', conta.id]"
+                  >Extrato</a
+                >
+              </li>
+              <li>
                 <a class="dropdown-item" (click)="confirmar(conta.id)"
                   >Remover</a
                 >

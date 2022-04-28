@@ -1,5 +1,5 @@
 export interface IExtrato{
-  dataHora: string;
+  dataHora: Date;
   id: number;
   observacao: string;
   tpOperacao: string;

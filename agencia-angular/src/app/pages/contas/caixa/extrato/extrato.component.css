@@ -33,26 +33,37 @@ h4 {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   background-color: #0d6efd;
+  justify-content: space-between;
+}
+.cabecalhoLista div {
+  border-radius: 5px;
+  padding-top: 10px;
+  padding-right: 15px;
+}
+.cabecalhoLista div a:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 5px 14px 28px,
+    rgba(0, 0, 0, 0.22) 5px 10px 10px;
+  cursor: pointer;
 }
 
-.nameConta {
-  padding-top: 12px;
-  font-size: 24px;
-  display: inline;
-  color: white;
-}
-
-.acoes {
+.nameExtratos {
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  justify-content: center;
 }
 
-.acoesMobile {
-  display: none;
+.nameExtrato {
+  font-size: 24px;
+  display: inline-flex;
+  color: white;
+  padding-top: 5px;
+}
+
+.botaoCria {
+  display: inline-block;
+  width: 20%;
+  margin: 1rem 0 1rem 1rem;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991px) {

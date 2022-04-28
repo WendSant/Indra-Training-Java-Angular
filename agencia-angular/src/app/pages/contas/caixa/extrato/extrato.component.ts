@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { IConta } from 'src/app/interfaces/conta';
@@ -27,6 +28,7 @@ export class ExtratoComponent implements OnInit {
       ativo: true
     }
   }
+  data = new Date();
   extratos: IExtrato[] = [];
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');

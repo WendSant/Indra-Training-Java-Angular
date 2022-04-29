@@ -17,6 +17,7 @@ export class ContasCadastrarEditarComponent implements OnInit {
 
   cliente: any;
   hasCliente: boolean = false;
+  hasIdEdit: boolean = false;
   hasConta: boolean = false;
   idCliente: string = '';
   urlEditar: boolean = false;
@@ -46,6 +47,7 @@ export class ContasCadastrarEditarComponent implements OnInit {
           this.exibirCriarConta();
           this.preencheCriarConta(result);
           this.resultado = result;
+          this.hasIdEdit = true;
         }, error =>{
           console.error(error);
         })
@@ -70,6 +72,9 @@ export class ContasCadastrarEditarComponent implements OnInit {
       this.formCliente.disabled;
       this.idCliente = this.cliente.id;
       console.log(this.idCliente);
+    }, error => {
+      Swal.fire('Erro!', `CPF Inválido ou incorreto`, 'error');
+      console.error(error);
     });
   }
 

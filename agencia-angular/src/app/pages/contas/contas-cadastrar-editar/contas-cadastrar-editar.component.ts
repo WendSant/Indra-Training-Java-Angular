@@ -54,7 +54,6 @@ export class ContasCadastrarEditarComponent implements OnInit {
       this.clientesService.buscarPorId(id).subscribe((result: ICliente )=>{
         this.formConta = this.preencheFormGroup(result.cpf);
         this.buscarClienteCpf();
-        this.exibirCriarConta();
       }, error => {
         console.error(error);
       });

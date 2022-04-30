@@ -13,6 +13,8 @@ import Swal from 'sweetalert2';
 })
 export class ClientesCadastrarEditarComponent implements OnInit {
 
+  hasIdEdit: boolean = false;
+
   emptyCliente: ICliente={
     id: 0,
     nome: '',
@@ -29,8 +31,10 @@ export class ClientesCadastrarEditarComponent implements OnInit {
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (id){
+      this.hasIdEdit = true;
       this.clientesService.buscarPorId(id).subscribe((result: ICliente)=>{
         this.formCliente = this.preencheFormGroup(result);
+
       }, error => {
         console.error(error);
       });

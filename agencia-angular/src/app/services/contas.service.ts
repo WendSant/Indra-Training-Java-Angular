@@ -50,7 +50,7 @@ export class ContasService {
   }
 
   buscarContaPorCpf(cpf: string){
-    return this.http.get(`${this.api}/${this.endpoint}/consultar-contas-por-cpf/${cpf}`);
+    return this.http.get<IConta[]>(`${this.api}/${this.endpoint}/consultar-contas-por-cpf/${cpf}`);
   }
 
   buscarPorIdCliente(id: string){

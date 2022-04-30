@@ -23,7 +23,7 @@ export class ListaContasCpfComponent implements OnInit {
   }
 
   listarContasCpf(cpf:string){
-    this.contasService.buscarContaPorCpf(cpf).subscribe((result: any) => {
+    this.contasService.buscarContaPorCpf(cpf).subscribe((result: IConta[]) => {
       this.contas = result;
       if(this.contas == null){
         Swal.fire('Erro no listar conta', 'Esse cliente não possui conta', 'error');

@@ -1,43 +1,99 @@
-<h1 style="text-align: center">Bem vindo ao MyBankOnline</h1>
-<h3 style="text-align: center">Escolha uma das opções abaixo</h3>
-<hr />
-<section style="display: flex; justify-content: space-around">
-  <div style="text-align: center">
-    <img
-      src="./../../../assets/icons/clients.png"
-      width="60%"
-      style="display: inline"
-    />
-    <button
-      class="btn btn-success"
-      style="display: grid; width: 33%; margin: 0 auto"
-      routerLink="/clientes"
-    >
-      Acessar Clientes
-    </button>
-  </div>
-  <div style="text-align: center">
-    <img src="./../../../assets/icons/conta-bancaria.png" width="60%" />
-    <button
-      class="btn btn-success"
-      style="display: grid; width: 32%; margin: 0 auto"
-      routerLink="/contas"
-    >
-      Acessar Contas
-    </button>
-  </div>
-  <div style="text-align: center">
-    <img
-      src="./../../../assets/icons/atm.png"
-      width="55%"
-      style="margin-bottom: 1.43rem"
-    />
-    <button
-      class="btn btn-success"
-      style="display: grid; width: 30%; margin: 0 auto"
-      routerLink="/caixa"
-    >
-      Acessar Caixa
-    </button>
-  </div>
-</section>
+<br />
+<div class="container1">
+  <section class="cabecalhoLista">
+    <div class="nameLista">
+      <h3 class="nameMenu">Menu Inicial</h3>
+    </div>
+  </section>
+  <section style="display: flex; justify-content: space-around">
+    <div style="text-align: center">
+      <img src="./../../../assets/icons/index/iconCliente.png" width="60%" />
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      >
+        <button
+          class="btn btn-success"
+          style="display: grid; width: 33%; margin: 0 auto"
+          routerLink="/clientes"
+        >
+          Listar Clientes
+        </button>
+        <button
+          class="btn btn-success"
+          style="display: grid; width: 33%; margin: 0 auto"
+          routerLink="/clientes/cadastrar"
+        >
+          Criar Cliente
+        </button>
+      </div>
+    </div>
+    <div style="text-align: center">
+      <img src="./../../../assets/icons/index/iconConta1.png" width="60%" />
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-bottom: 1rem;
+        "
+      >
+        <button
+          class="btn btn-success"
+          style="display: grid; width: 32%; margin: 0 auto"
+          routerLink="/contas"
+        >
+          Acessar Contas
+        </button>
+        <button
+          class="btn btn-success"
+          style="display: grid; width: 32%; margin: 0 auto"
+          routerLink="/contas/cadastrar"
+        >
+          Cadastrar conta
+        </button>
+      </div>
+    </div>
+    <div style="text-align: center">
+      <img
+        src="./../../../assets/icons/index/iconATM3.png"
+        width="55%"
+        height="55%"
+      />
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-bottom: 5rem;
+        "
+      >
+        <button
+          class="btn btn-success"
+          style="display: grid; width: 30%; margin: 0 auto"
+          routerLink="/caixa/transferencia"
+        >
+          Transferência
+        </button>
+        <button
+          class="btn btn-success"
+          style="display: grid; width: 30%; margin: 0 auto"
+          routerLink="/caixa/deposito"
+        >
+          Deposito
+        </button>
+        <button
+          class="btn btn-success"
+          style="display: grid; width: 30%; margin: 0 auto"
+          routerLink="/caixa/saque"
+        >
+          Saque
+        </button>
+      </div>
+    </div>
+  </section>
+</div>

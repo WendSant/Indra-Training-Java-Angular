@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  formExtrato: FormGroup = new FormGroup({
+    agencia: new FormControl('', Validators.required),
+    conta: new FormControl('', Validators.required),
+  });
+
+  constructor(private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+  consultarExtrato(){
+    return this.router.navigate(['/contas/extrato/'+this.formExtrato.get('agencia')?.value+"/"+this.formExtrato.get('conta')?.value]);
   }
 
 }

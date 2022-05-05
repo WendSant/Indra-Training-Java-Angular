@@ -97,3 +97,80 @@
     </div>
   </section>
 </div>
+<br />
+<div class="containerSections">
+  <section class="sectionsIndex">
+    <section class="cabecalhoLista">
+      <div class="nameLista">
+        <h3 class="nameMenu">Buscar Conta por CPF</h3>
+      </div>
+    </section>
+  </section>
+  <section class="sectionsIndex">
+    <section class="cabecalhoLista" style="background-color: #006494">
+      <div class="nameLista">
+        <h3 class="nameMenu">Consultar extrato</h3>
+      </div>
+    </section>
+    <div class="containerTeste">
+      <form
+        [formGroup]="formExtrato"
+        class="testedo"
+        (ngSubmit)="consultarExtrato()"
+      >
+        <div class="input-group mb-3">
+          <span
+            style="background-color: #0d6efd; color: white; width: 10rem"
+            class="input-group-text"
+            id="inputGroup-sizing-default"
+            >Agência da conta:
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            placeholder="Digite os 4 números da agência"
+            formControlName="agencia"
+            style="width: 10rem"
+          />
+        </div>
+        <br />
+        <div
+          class="input-group mb-3"
+          style="display: flex; flex-direction: row"
+        >
+          <span
+            style="background-color: #0d6efd; color: white; width: 10rem"
+            class="input-group-text"
+            id="inputGroup-sizing-default"
+            >Numero da conta:
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            placeholder="Digite os 6 números da conta"
+            formControlName="conta"
+            style="width: 10rem"
+          />
+        </div>
+        <button
+          [disabled]="!formExtrato.valid"
+          type="submit"
+          class="btn btn-success"
+          style="
+            font-size: 1.3rem;
+            display: flex;
+            align-self: center;
+            margin-bottom: 1rem;
+            background-color: #13293d;
+          "
+        >
+          Consultar
+        </button>
+      </form>
+    </div>
+  </section>
+</div>

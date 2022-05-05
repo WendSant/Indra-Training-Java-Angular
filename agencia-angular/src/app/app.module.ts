@@ -19,6 +19,7 @@ import { CpfPipe } from './shared/pipes/cpf.pipe';
 import { ListaContasCpfComponent } from './pages/contas/lista-contas-cpf/lista-contas-cpf.component';
 import { ExtratoComponent } from './pages/contas/caixa/extrato/extrato.component';
 import { LocalDateTimePipe } from './shared/pipes/local-date-time.pipe';
+import { ExtratoAgenciaContaComponent } from './pages/contas/caixa/extrato-agencia-conta/extrato-agencia-conta.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { LocalDateTimePipe } from './shared/pipes/local-date-time.pipe';
     CpfPipe,
     ListaContasCpfComponent,
     ExtratoComponent,
-    LocalDateTimePipe
+    LocalDateTimePipe,
+    ExtratoAgenciaContaComponent,
   ],
   imports: [
     BrowserModule,

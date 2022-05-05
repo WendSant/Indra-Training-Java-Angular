@@ -18,6 +18,9 @@
 .nameListaTodasContas {
   display: flex;
 }
+.testando a:hover {
+  cursor: pointer;
+}
 
 .nameSaque {
   font-size: 24px;

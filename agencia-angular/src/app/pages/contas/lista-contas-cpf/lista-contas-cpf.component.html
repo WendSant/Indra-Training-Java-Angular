@@ -154,6 +154,13 @@
                   >
                 </li>
                 <li>
+                  <a
+                    class="dropdown-item"
+                    [routerLink]="['/contas/extrato', conta.id]"
+                    >Extrato</a
+                  >
+                </li>
+                <li>
                   <a class="dropdown-item" (click)="confirmar(conta.id)"
                     >Remover</a
                   >
@@ -198,6 +205,13 @@
                       class="dropdown-item"
                       [routerLink]="['/contas/editar', conta.id]"
                       >Editar</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      [routerLink]="['/contas/extrato', conta.id]"
+                      >Extrato</a
                     >
                   </li>
                   <li>

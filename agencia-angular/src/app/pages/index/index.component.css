@@ -18,6 +18,7 @@
 
 .nameLista {
   display: flex;
+  text-align: center;
 }
 
 .nameMenu {

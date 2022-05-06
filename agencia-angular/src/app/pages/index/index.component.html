@@ -100,11 +100,51 @@
 <br />
 <div class="containerSections">
   <section class="sectionsIndex">
-    <section class="cabecalhoLista">
+    <section class="cabecalhoLista" style="background-color: #006494">
       <div class="nameLista">
-        <h3 class="nameMenu">Buscar Conta por CPF</h3>
+        <h3 class="nameMenu">Consultar conta</h3>
       </div>
     </section>
+    <br />
+    <div class="input-group mb-3" style="padding: 1.5rem">
+      <form
+        [formGroup]="formCPF"
+        class="testedo"
+        (ngSubmit)="consultarContaCpf()"
+      >
+        <div class="input-group mb-3">
+          <span
+            style="background-color: #0d6efd; color: white"
+            class="input-group-text"
+            id="inputGroup-sizing-default"
+            >CPF:
+          </span>
+          <input
+            type="text"
+            class="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default"
+            placeholder="Digite o CPF"
+            formControlName="cpf"
+            style="width: 10rem"
+          />
+        </div>
+        <button
+          [disabled]="!formCPF.valid"
+          type="submit"
+          class="btn btn-success"
+          style="
+            font-size: 1.3rem;
+            display: flex;
+            align-self: center;
+            margin-bottom: 1rem;
+            background-color: #13293d;
+          "
+        >
+          Consultar
+        </button>
+      </form>
+    </div>
   </section>
   <section class="sectionsIndex">
     <section class="cabecalhoLista" style="background-color: #006494">

@@ -27,7 +27,7 @@ export class ListaContasCpfComponent implements OnInit {
       this.contas = result;
       if(this.contas == null){
         Swal.fire('Erro no listar conta', 'Esse cliente não possui conta', 'error');
-        this.router.navigate(['/clientes'])
+        history.back()
       }
     });
   }

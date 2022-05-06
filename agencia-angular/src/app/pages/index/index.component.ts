@@ -13,11 +13,18 @@ export class IndexComponent implements OnInit {
     agencia: new FormControl('', Validators.required),
     conta: new FormControl('', Validators.required),
   });
+  formCPF: FormGroup = new FormGroup({
+    cpf: new FormControl('', Validators.required),
+  });
 
   constructor(private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+  }
+
+  consultarContaCpf(){
+    return this.router.navigate(['/contas/'+this.formCPF.get('cpf')?.value]);
   }
 
   consultarExtrato(){

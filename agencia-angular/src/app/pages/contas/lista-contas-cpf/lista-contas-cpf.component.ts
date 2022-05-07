@@ -29,6 +29,9 @@ export class ListaContasCpfComponent implements OnInit {
         Swal.fire('Erro no listar conta', 'Esse cliente não possui conta', 'error');
         history.back()
       }
+    },error =>{
+      Swal.fire('Erro ao consultar', 'Esse cliente não existe ou não possui conta', 'error');
+      history.back()
     });
   }
 

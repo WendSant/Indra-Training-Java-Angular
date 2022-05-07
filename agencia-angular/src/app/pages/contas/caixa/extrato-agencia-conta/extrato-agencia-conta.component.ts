@@ -20,11 +20,6 @@ export class ExtratoAgenciaContaComponent implements OnInit {
     const conta = this.activatedRoute.snapshot.paramMap.get('conta');
     if(conta && agencia){
       this.consultarExtrato(agencia, conta);
-      console.log(this.extratos)
-      if(this.extratos.length == 0 ){
-        Swal.fire('Erro ao consultar', 'Essa conta não existe ou não possui extrato', 'error');
-        this.router.navigate(['/'])
-      }
     }
   }
 
@@ -32,11 +27,9 @@ export class ExtratoAgenciaContaComponent implements OnInit {
   consultarExtrato(agencia: string, conta:string){
     this.contasService.consultaExtrato(agencia, conta).subscribe((res: any) =>{
       this.extratos = res
-      if(res.length == 0 ){
-        Swal.fire('Erro no extrato', 'Essa conta não possui extrato', 'error');
-      }else if(this.extratos.length == 0){
-
-      }
+    },error =>{
+      Swal.fire('Erro ao consultar', 'Essa conta não existe ou não possui extrato', 'error');
+      this.router.navigate(['/'])
     });
   }
 

@@ -10,10 +10,12 @@ O objetivo do projeto é servir de base para o treinamento de "Formação Java/A
 - Web service SOAP
 - Conceitos de View (JSP/JSF)
 
-<div style="display: flex; flex-direction: column; align-items: center;">
-
-### Tela inicial
-
+<div align="center">
+    
+    
+    
+<h2>Tela inicial</h2>
+ 
 ![telaInicial](https://user-images.githubusercontent.com/79418546/167302133-6a2bcac4-72da-4890-92ca-3638acccfe28.png)
 
 </div>

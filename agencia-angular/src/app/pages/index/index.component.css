@@ -37,6 +37,9 @@
   margin: 2rem auto;
   background-color: #e8f1f2;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .container2 {
   padding: 10px;
@@ -84,4 +87,21 @@ h4 {
   background-color: #e8f1f2;
   border-radius: 15px;
   flex-direction: column;
+}
+
+.botaodeCria {
+  border-radius: 10px;
+  background-color: #006494;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.botaodeCria:hover {
+  background-color: #247ba0;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.botaodeCria:active {
+  background-color: #1b98e0;
 }

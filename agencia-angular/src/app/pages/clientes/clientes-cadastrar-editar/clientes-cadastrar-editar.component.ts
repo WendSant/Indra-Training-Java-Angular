@@ -57,6 +57,8 @@ export class ClientesCadastrarEditarComponent implements OnInit {
     this.clientesService.cadastrarEditar(cliente).subscribe(result => {
       Swal.fire('Sucesso!!', `${this.estaEditando() ? 'Editado' : 'Cadastrado'} com sucesso!`, 'success' );
       this.router.navigate(['/clientes']);
+    },error =>{
+      Swal.fire('Erro ao cadastrar', 'Verifique os campos', 'error');
     });
   }
 

@@ -57,6 +57,15 @@ Voce pode desenvolver utilizando os recursos abaixo:
 Banco de dados
 ==========================================================================
 
-Como acessar o client do MySQL:
-
+Como acessar o client do MySQL: Configure um banco local nas configurações da aplicação
 	
+	Procure pelo arquivo application.yml, nele procure o trecho de endereço do banco de dados
+	Exemplo utilizando Vertrigo:
+		primary:
+			datasource:
+			  driverClassName: com.mysql.cj.jdbc.Driver
+			  jdbcUrl: jdbc:mysql://127.0.0.1/treinamentoindra?useTimezone=true&serverTimezone=UTC
+			  username: root
+			  password: vertrigo
+	
+
